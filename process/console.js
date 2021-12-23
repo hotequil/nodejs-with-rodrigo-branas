@@ -1,9 +1,11 @@
 const print = (method, messages) => {
     messages.forEach((message, index) => {
-        if(messages.length === (index + 1)) message = ` ${message}\n`;
-        else if(index !== 0) message = ` ${message}`;
+        const isNotFirst = index !== 0;
 
-        process[method].write(message);
+        if(typeof(message) === 'object') message = JSON.stringify(message);
+        if(isNotFirst) message = messages.length === (index + 1) ? ` ${message}\n` : ` ${message}`;
+
+        process[method].write(message.toString());
     });
 };
 

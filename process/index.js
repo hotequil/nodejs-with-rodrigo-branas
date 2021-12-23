@@ -5,7 +5,10 @@ const { onReadable } = require('./keyboard');
 
 log('test', 'console', 'good');
 error('error', 'custom');
+log(process.memoryUsage());
 
 // run: node . 1> out.log 2> error.log
 
-onReadable(console.log);
+onReadable(log);
+
+log(process.uptime());
