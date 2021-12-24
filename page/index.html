@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Test get</title>
+    </head>
+    <body>
+        <div id="json"></div>
+        <script>
+            const main = async () => {
+                const aleatory = Math.round(Math.random() * 10);
+                const isEven = aleatory % 2 === 0;
+                const path = isEven ? 'languages' : 'frameworks';
+                const response = await fetch(`http://localhost:4000/${path}`);
+
+                document.querySelector('#json').innerHTML = JSON.stringify(await response.json());
+            };
+
+            main();
+        </script>
+    </body>
+</html>
