@@ -7,4 +7,5 @@ const companies = [
     { name: 'Google' }
 ];
 
+app.interceptor((request, response) => response.setHeader('Access-Control-Allow-Origin', '*'));
 app.get('/companies', (request, response) => response.write(JSON.stringify(companies)));
